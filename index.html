@@ -3,23 +3,571 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
+  <title>한동해 | Portfolio</title>
+  <meta name="description" content="성과 중심으로 정리한 한동해의 개발 포트폴리오 (GitHub Pages)" />
+
   <style>
-    body{font-family:system-ui, sans-serif; padding:40px; line-height:1.6}
-    .card{max-width:720px; margin:0 auto; padding:24px; border:1px solid #ddd; border-radius:16px}
-    h1{margin:0 0 12px}
-    a{color:#2142AB; font-weight:700}
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --card2:#0c162c;
+      --text:#e8eeff;
+      --muted:#a8b3d6;
+      --line:rgba(255,255,255,.08);
+      --accent:#4f7cff;
+      --accent2:#7c5cff;
+      --shadow:0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1060px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(79,124,255,.35), transparent 55%),
+                  radial-gradient(900px 500px at 95% 10%, rgba(124,92,255,.25), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius:999px; color:var(--muted); font-size:13px;
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.6);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto;
+      padding:12px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; flex-direction:column; gap:2px}
+    .brand b{font-size:14px; letter-spacing:.2px}
+    .brand span{font-size:12px; color:var(--muted)}
+    .navlinks{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end}
+    .navlinks a{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border-radius:999px;
+      border:1px solid transparent;
+    }
+    .navlinks a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.03)}
+    .cta{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(79,124,255,.5);
+      background: linear-gradient(135deg, rgba(79,124,255,.22), rgba(124,92,255,.18));
+      color:var(--text); font-size:13px;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid; grid-template-columns: 1.25fr .75fr; gap:18px;
+      padding-top:22px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .nav{flex-direction:column; align-items:flex-start}
+      .navlinks{justify-content:flex-start}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroMain{padding:22px}
+    .heroSide{padding:22px; background: linear-gradient(180deg, rgba(79,124,255,.10), rgba(255,255,255,.02))}
+    h1{margin:0 0 10px; font-size:30px; letter-spacing:-.2px}
+    .sub{color:var(--muted); margin:0 0 16px}
+    .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .row{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:14px;
+    }
+    .btn:hover{border-color:rgba(79,124,255,.6); background:rgba(79,124,255,.10)}
+    .btnPrimary{
+      border-color:rgba(79,124,255,.55);
+      background: linear-gradient(135deg, rgba(79,124,255,.28), rgba(124,92,255,.22));
+    }
+
+    /* Section */
+    section{margin-top:26px}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin:0 0 10px;
+    }
+    .sectionTitle h2{margin:0; font-size:18px}
+    .sectionTitle p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid{
+      display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
+    .proj{
+      padding:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .projHeader{display:flex; align-items:flex-start; justify-content:space-between; gap:12px}
+    .projTitle{display:flex; flex-direction:column; gap:4px}
+    .projTitle b{font-size:15px}
+    .projTitle span{font-size:12px; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.02);
+    }
+    .projBody{margin-top:12px; color:var(--muted); font-size:14px}
+    .projBody ul{margin:10px 0 0 18px}
+    .projBody li{margin:6px 0}
+    .thumbs{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:8px; margin-top:12px;
+    }
+    .thumb{
+      aspect-ratio: 16 / 10;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--muted); font-size:12px;
+    }
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+
+    .split{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
+
+    .box{
+      padding:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .box h3{margin:0 0 8px; font-size:15px}
+    .box p{margin:0; color:var(--muted); font-size:14px}
+    .box ul{margin:10px 0 0 18px; color:var(--muted)}
+    .muted{color:var(--muted)}
+    footer{margin-top:34px; color:var(--muted); font-size:13px}
+    .hr{height:1px; background:var(--line); margin:16px 0}
+
+    /* project detail sections */
+    .detail{padding:18px}
+    .detail h3{margin:0 0 6px}
+    .detail .meta{color:var(--muted); font-size:13px; margin:0 0 10px}
+    .detail ul{margin:10px 0 0 18px}
+    .miniNav{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .miniNav a{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px}
+    .miniNav a:hover{color:var(--text); border-color:rgba(79,124,255,.6); background:rgba(79,124,255,.10)}
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>안녕하세요! 👋</h1>
-    <p>여기는 GitHub Pages로 만든 한동해의 포트폴리오입니다.</p>
-    <p>
-      <a href="https://github.com/">GitHub</a> |
-      <a href="#">프로젝트</a> |
-      <a href="#">010-5570-5675</a>
-    </p>
-  </div>
+  <!-- Top Nav -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <b>한동해 · Portfolio</b>
+        <span>성과 중심 프로젝트 + 트러블슈팅 중심</span>
+      </div>
+
+      <div class="navlinks">
+        <a href="#intro">자기소개</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술</a>
+        <a href="#contact" class="cta">연락처</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card heroMain">
+        <span class="pill">🛬 인삿말 · 면접관이 “바로 이해”하는 포트폴리오</span>
+        <h1>안녕하세요! 저는 “성과와 개선”으로 설명하는 개발자 한동해입니다.</h1>
+        <p class="sub">
+          포트폴리오는 <b>면접으로 가기 위한 발판</b>이라고 생각합니다. 그래서 가치관을 길게 쓰기보다,
+          <b>프로젝트에서 만든 결과</b>와 <b>문제를 해결한 과정</b>을 중심으로 정리했습니다.
+        </p>
+
+        <div class="badges">
+          <span class="tag">React / Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">SEO / 성능 개선</span>
+          <span class="tag">트러블슈팅 문서화</span>
+        </div>
+
+        <div class="row">
+          <a class="btn btnPrimary" href="#projects">프로젝트 보러가기</a>
+          <a class="btn" href="#skills">기술 경험 보기</a>
+          <a class="btn" href="https://github.com/eastsea979797" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+
+        <div class="hr"></div>
+
+        <div id="intro" class="split">
+          <div class="box">
+            <h3>자기소개 요약</h3>
+            <ul>
+              <li>가치관은 면접에서 말할 기회가 충분하다고 생각합니다.</li>
+              <li>서류에서는 <b>회사가 매력을 느낄 “성과”</b>가 먼저 보여야 한다고 봅니다.</li>
+              <li>그래서 저는 프로젝트를 <b>결과 → 역할 → 문제/해결</b> 순으로 작성합니다.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>이 포트폴리오가 목표로 하는 것</h3>
+            <ul>
+              <li>“00 페이지 개발”이 아니라, <b>처음 보는 사람도 이해</b>하게 만들기</li>
+              <li>사진/화면을 같이 보여주고, 기여/성과를 한 줄로 요약</li>
+              <li>트러블슈팅은 <b>문제 → 시도 → 비교 → 해결 → 배운 점</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card heroSide" id="contact">
+        <span class="pill">📌 빠른 정보</span>
+        <div style="margin-top:12px">
+          <p style="margin:0 0 8px"><b>이름</b> : 한동해</p>
+          <p style="margin:0 0 8px"><b>사이트</b> : <a class="cta" style="padding:6px 10px" href="https://eastsea979797.github.io/" target="_blank" rel="noreferrer">GitHub Pages</a></p>
+          <p style="margin:0 0 8px"><b>GitHub</b> : <a class="cta" style="padding:6px 10px" href="https://github.com/eastsea979797" target="_blank" rel="noreferrer">github.com/eastsea979797</a></p>
+          <p style="margin:0 0 8px"><b>연락</b> : <span class="muted">010-5570-5675</span></p>
+        </div>
+
+        <div class="hr"></div>
+
+        <span class="pill">🧭 프로젝트 바로가기</span>
+        <div class="miniNav">
+          <!-- “슉 이동” (섹션 앵커) -->
+          <a href="#p1">1차 프로젝트</a>
+          <a href="#p2">2차 프로젝트</a>
+          <a href="#p3">3차 프로젝트</a>
+          <a href="#ai1">AI 프로젝트 1차</a>
+          <a href="#ai2">AI 프로젝트 2차</a>
+
+          <!-- ✅ 옵션: 별도 페이지로 이동하고 싶으면 아래 링크를 사용(파일 만들면 됨)
+          <a href="projects/p1.html">1차(페이지)</a>
+          -->
+        </div>
+
+        <div class="hr"></div>
+
+        <p class="muted" style="margin:0">
+          Tip) 프로젝트 상세를 “페이지로 분리”하고 싶으면<br/>
+          <b>/projects/p1.html</b> 같은 파일을 추가하면 됩니다.
+        </p>
+      </aside>
+    </div>
+
+    <!-- Projects overview cards -->
+    <section id="projects">
+      <div class="sectionTitle">
+        <h2>👩🏻‍💻 프로젝트</h2>
+        <p>처음 보는 사람도 이해하도록: 화면 + 역할 + 성과 + 트러블슈팅</p>
+      </div>
+
+      <div class="grid">
+        <article class="proj">
+          <div class="projHeader">
+            <div class="projTitle">
+              <b>1차 프로젝트</b>
+              <span>요약 한 줄: “무엇을 만들었고 어떤 결과가 있었는지”</span>
+            </div>
+            <a class="btn" href="#p1">상세로 슉 이동 →</a>
+          </div>
+          <div class="tags">
+            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
+          </div>
+          <div class="projBody">
+            <ul>
+              <li><b>내 기여:</b> A 구현, B 개선</li>
+              <li><b>성과:</b> 응답시간 3초→1초, 이탈 감소 등</li>
+              <li><b>트러블슈팅:</b> “문제-시도-해결”을 문서화</li>
+            </ul>
+          </div>
+          <div class="thumbs">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="projHeader">
+            <div class="projTitle">
+              <b>2차 프로젝트</b>
+              <span>요약 한 줄: “핵심 기능/역할/성과”</span>
+            </div>
+            <a class="btn" href="#p2">상세로 슉 이동 →</a>
+          </div>
+          <div class="tags">
+            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
+          </div>
+          <div class="projBody">
+            <ul>
+              <li><b>내 기여:</b> 핵심 화면/기능 개발</li>
+              <li><b>성과:</b> 오류율 감소, 운영 편의 개선</li>
+              <li><b>트러블슈팅:</b> 성능/UX 개선 사례</li>
+            </ul>
+          </div>
+          <div class="thumbs">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="projHeader">
+            <div class="projTitle">
+              <b>3차 프로젝트</b>
+              <span>요약 한 줄: “문제 해결 중심으로 설명”</span>
+            </div>
+            <a class="btn" href="#p3">상세로 슉 이동 →</a>
+          </div>
+          <div class="tags">
+            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
+          </div>
+          <div class="projBody">
+            <ul>
+              <li><b>내 기여:</b> 협업 구조 개선, 품질 향상</li>
+              <li><b>성과:</b> 배포 안정화, 유지보수성 강화</li>
+              <li><b>트러블슈팅:</b> “원인-가설-검증” 흐름</li>
+            </ul>
+          </div>
+          <div class="thumbs">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="projHeader">
+            <div class="projTitle">
+              <b>AI 프로젝트 1차</b>
+              <span>요약 한 줄: “AI/데이터로 해결한 문제”</span>
+            </div>
+            <a class="btn" href="#ai1">상세로 슉 이동 →</a>
+          </div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Pipeline</span>
+          </div>
+          <div class="projBody">
+            <ul>
+              <li><b>내 기여:</b> 데이터 수집/전처리/평가</li>
+              <li><b>성과:</b> 정확도/재현율/속도 개선</li>
+              <li><b>트러블슈팅:</b> 데이터 품질/편향 대응</li>
+            </ul>
+          </div>
+          <div class="thumbs">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="projHeader">
+            <div class="projTitle">
+              <b>AI 프로젝트 2차</b>
+              <span>요약 한 줄: “서비스 연동까지 한 번에”</span>
+            </div>
+            <a class="btn" href="#ai2">상세로 슉 이동 →</a>
+          </div>
+          <div class="tags">
+            <span class="tag">FastAPI</span><span class="tag">Model Serving</span><span class="tag">Backend 연동</span>
+          </div>
+          <div class="projBody">
+            <ul>
+              <li><b>내 기여:</b> 모델 서빙, API 설계, 연동</li>
+              <li><b>성과:</b> 자동 분류 플로우 구축</li>
+              <li><b>트러블슈팅:</b> 예외/속도/정확도 트레이드오프</li>
+            </ul>
+          </div>
+          <div class="thumbs">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Detail Sections -->
+    <section class="card detail" id="p1">
+      <h3>1차 프로젝트 — (프로젝트명 입력)</h3>
+      <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
+      <div class="split">
+        <div class="box">
+          <h3>내가 기여한 부분</h3>
+          <ul>
+            <li>예: 성적 입력 페이지 개발 (react-hook-form)</li>
+            <li>예: localStorage로 임시 저장 기능</li>
+            <li>예: 계산 로직 최적화(map/reduce/filter 등)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>성과(숫자로 쓰기)</h3>
+          <ul>
+            <li>예: 응답시간 3초 → 1초</li>
+            <li>예: 문의 20건 이상 대응/개선</li>
+            <li>예: 사용자 750명 접속, 175명 로그인 등</li>
+          </ul>
+        </div>
+      </div>
+      <div class="box" style="margin-top:14px">
+        <h3>트러블슈팅</h3>
+        <ul>
+          <li><b>문제:</b> 스크롤 이벤트로 잦은 렌더링 발생</li>
+          <li><b>시도:</b> 이벤트 호출 빈도/옵션 조사(throttle, passive)</li>
+          <li><b>해결:</b> throttle 적용 + passive 옵션으로 성능 개선</li>
+          <li><b>배운 점:</b> debounce/throttle 사용 기준 정리</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card detail" id="p2">
+      <h3>2차 프로젝트 — (프로젝트명 입력)</h3>
+      <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+      <div class="box">
+        <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
+        <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+      </div>
+    </section>
+
+    <section class="card detail" id="p3">
+      <h3>3차 프로젝트 — (프로젝트명 입력)</h3>
+      <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+      <div class="box">
+        <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
+        <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+      </div>
+    </section>
+
+    <section class="card detail" id="ai1">
+      <h3>AI 프로젝트 1차 — (프로젝트명 입력)</h3>
+      <p class="meta">데이터/모델/평가 지표/결과</p>
+      <div class="box">
+        <h3>내가 한 일(파이프라인 관점)</h3>
+        <ul>
+          <li>데이터 수집 → 전처리 → 학습 → 평가 → 개선</li>
+          <li>모델 선택 이유(성능/속도/데이터 특성)</li>
+          <li>실패 케이스 분석 및 개선</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card detail" id="ai2">
+      <h3>AI 프로젝트 2차 — (프로젝트명 입력)</h3>
+      <p class="meta">서빙/백엔드 연동/운영 플로우</p>
+      <div class="box">
+        <h3>서비스 연동(면접에서 좋아하는 포인트)</h3>
+        <ul>
+          <li>모델 결과를 API로 제공(FastAPI 등)</li>
+          <li>백엔드에서 저장/검증/예외 처리 흐름 설계</li>
+          <li>확률 차이가 작은 케이스는 사용자 확인(챗봇)으로 품질 확보</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="sectionTitle">
+        <h2>⌨️ 기술</h2>
+        <p>숙련도 bar 대신 “해본 경험”으로 증명</p>
+      </div>
+
+      <div class="split">
+        <div class="box">
+          <h3>TypeScript / JavaScript</h3>
+          <ul>
+            <li>유니온/인터섹션 타입 등 타입 연산자 경험</li>
+            <li>async/await 기반 비동기 처리</li>
+            <li>IntersectionObserver로 무한 스크롤 구현 경험</li>
+            <li>localStorage 기반 임시 저장/복원 기능 구현</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>React / Next.js</h3>
+          <ul>
+            <li>react-hook-form으로 폼 상태/검증 관리</li>
+            <li>getServerSideProps 등 SSR 데이터 패칭 경험</li>
+            <li>SEO: meta/metadata 설정 및 검색 노출 개선</li>
+            <li>렌더링/이벤트 최적화(throttle, passive)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:14px">
+        <div class="box">
+          <h3>HTML / CSS</h3>
+          <ul>
+            <li>시맨틱 마크업 기반 접근성 개선 경험</li>
+            <li>grid/rem 반응형 레이아웃 구성</li>
+            <li>keyframes 기반 UI 애니메이션 구현</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Git / 협업</h3>
+          <ul>
+            <li>git-flow 기반 브랜치 전략 경험</li>
+            <li>코드리뷰로 품질 개선(리팩토링/규칙 정리)</li>
+            <li>문서화(트러블슈팅/인수인계)로 협업 효율 향상</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="hr"></div>
+      <div class="muted">
+        © <span id="year"></span> 한동해. Built with GitHub Pages.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // (선택) 해시 이동 시 상단 고정 헤더만큼 살짝 보정하고 싶을 때:
+    // - 브라우저 기본 scroll-behavior로도 충분하지만, 보정이 필요하면 아래 활성화
+    (function(){
+      const headerHeight = 70; // 대략값(원하면 조절)
+      if (!location.hash) return;
+      const el = document.querySelector(location.hash);
+      if (!el) return;
+      setTimeout(() => {
+        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }, 50);
+    })();
+  </script>
 </body>
 </html>
