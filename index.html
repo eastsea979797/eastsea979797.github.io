@@ -170,7 +170,7 @@
     }
     .box h3{margin:0 0 8px; font-size:15px}
     .box p{margin:0; color:var(--muted); font-size:14px}
-    .box ul{margin:10px 0 0 18px; color:var(--muted)}
+    .box ul{margin:10px 0 0 0; padding-left:1.25em; color:var(--muted)}
     .muted{color:var(--muted)}
     footer{margin-top:34px; color:var(--muted); font-size:13px}
     .hr{height:1px; background:var(--line); margin:16px 0}
@@ -217,27 +217,71 @@
     }
     .projPanel.is-active{display:block}
 
-    /* 이미지 갤러리 (30장 이상 지원) */
+    /* 이미지 슬라이더 (1장씩 보기) */
     .imageGallery{
-      display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
-      gap:12px; margin-top:16px;
+      position:relative; margin-top:16px;
+      width:100%; max-width:100%;
     }
-    @media (max-width: 600px){
-      .imageGallery{grid-template-columns:repeat(2, 1fr); gap:8px}
+    .sliderContainer{
+      position:relative; width:100%; overflow:hidden;
+      border-radius:12px; border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+    .sliderWrapper{
+      display:flex; transition:transform 0.4s ease-in-out;
+      width:100%;
     }
     .galleryImage{
-      aspect-ratio:16/10; border-radius:10px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      overflow:hidden; cursor:pointer;
-      transition:transform .2s, border-color .2s;
-    }
-    .galleryImage:hover{
-      transform:scale(1.02);
-      border-color:rgba(79,124,255,.5);
+      min-width:100%; width:100%; flex-shrink:0;
+      aspect-ratio:16/9; position:relative;
     }
     .galleryImage img{
-      width:100%; height:100%; object-fit:cover; display:block;
+      width:100%; height:100%; object-fit:contain; display:block;
+      background:rgba(255,255,255,.01);
+    }
+    .sliderNav{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-top:12px; gap:12px;
+    }
+    .sliderBtn{
+      display:flex; align-items:center; justify-content:center;
+      padding:10px 16px; border-radius:8px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text); font-size:14px; cursor:pointer;
+      transition:all .2s; min-width:100px;
+    }
+    .sliderBtn:hover:not(:disabled){
+      border-color:rgba(79,124,255,.6);
+      background:rgba(79,124,255,.15);
+    }
+    .sliderBtn:disabled{
+      opacity:0.4; cursor:not-allowed;
+    }
+    .sliderCounter{
+      color:var(--muted); font-size:13px;
+      padding:10px 16px;
+    }
+    .sliderArrow{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:48px; height:48px; border-radius:50%;
+      background:rgba(0,0,0,.6); backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.1);
+      color:var(--text); font-size:20px;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; z-index:10; transition:all .2s;
+    }
+    .sliderArrow:hover{
+      background:rgba(79,124,255,.8);
+      border-color:rgba(79,124,255,.5);
+    }
+    .sliderArrow.prev{left:12px}
+    .sliderArrow.next{right:12px}
+    @media (max-width: 600px){
+      .sliderArrow{width:40px; height:40px; font-size:16px}
+      .sliderArrow.prev{left:8px}
+      .sliderArrow.next{right:8px}
+      .sliderBtn{padding:8px 12px; font-size:12px; min-width:80px}
     }
 
     /* PDF 다운로드 버튼 */
@@ -302,7 +346,7 @@
     <!-- Hero -->
     <div class="hero">
       <div class="card heroMain">
-        <span class="pill">🛬 인삿말 · 면접관이 “바로 이해”하는 포트폴리오</span>
+        <span class="pill">🛬 인삿말</span>
         <h1>안녕하세요! 저는 “성과와 개선”으로 설명하는 개발자 한동해입니다.</h1>
         <p class="sub">
           포트폴리오는 <b>면접으로 가기 위한 발판</b>이라고 생각합니다. 그래서 가치관을 길게 쓰기보다,
@@ -326,7 +370,7 @@
 
         <div id="intro" class="split">
           <div class="box">
-            <h3>자기소개 요약</h3>
+            <h3>자기소개</h3>
             <ul>
               <li>가치관은 면접에서 말할 기회가 충분하다고 생각합니다.</li>
               <li>서류에서는 <b>회사가 매력을 느낄 “성과”</b>가 먼저 보여야 한다고 봅니다.</li>
@@ -336,9 +380,9 @@
           <div class="box">
             <h3>이 포트폴리오가 목표로 하는 것</h3>
             <ul>
-              <li>“00 페이지 개발”이 아니라, <b>처음 보는 사람도 이해</b>하게 만들기</li>
+              <li>“페이지 개발”이 아니라, <b>처음 보는 사람도 이해</b>하게 만들기</li>
               <li>사진/화면을 같이 보여주고, 기여/성과를 한 줄로 요약</li>
-              <li>트러블슈팅은 <b>문제 → 시도 → 비교 → 해결 → 배운 점</b></li>
+              <li>트러블슈팅은 <b>문제 → 시도 → 해결 → 배운 점</b></li>
             </ul>
           </div>
         </div>
@@ -364,11 +408,11 @@
         <span class="pill">🧭 프로젝트 바로가기</span>
         <div class="miniNav">
           <!-- “이동” (섹션 앵커) -->
-          <a href="#p1">1차 프로젝트</a>
-          <a href="#p2">2차 프로젝트</a>
-          <a href="#p3">3차 프로젝트</a>
-          <a href="#ai1">AI 프로젝트 1차</a>
-          <a href="#ai2">AI 프로젝트 2차</a>
+          <a href="#p1">NovaFund</a>
+          <a href="#p2">NovaTrip</a>
+          <a href="#p3">BaroFarm</a>
+          <a href="#ai1">Seven Playlist</a>
+          <a href="#ai2">SmartBudget</a>
 
           <!-- ✅ 옵션: 별도 페이지로 이동하고 싶으면 아래 링크를 사용(파일 만들면 됨)
           <a href="projects/p1.html">1차(페이지)</a>
@@ -376,11 +420,6 @@
         </div>
 
         <div class="hr"></div>
-
-        <p class="muted" style="margin:0">
-          Tip) 프로젝트 상세를 “페이지로 분리”하고 싶으면<br/>
-          <b>/projects/p1.html</b> 같은 파일을 추가하면 됩니다.
-        </p>
       </aside>
     </div>
 
@@ -388,14 +427,13 @@
     <section id="projects">
       <div class="sectionTitle">
         <h2>👩🏻‍💻 프로젝트</h2>
-        <p>처음 보는 사람도 이해하도록: 화면 + 역할 + 성과 + 트러블슈팅</p>
       </div>
 
       <div class="grid">
         <article class="proj">
           <div class="projHeader">
             <div class="projTitle">
-              <b>1차 프로젝트</b>
+              <b>NovaFund</b>
               <span>요약 한 줄: “무엇을 만들었고 어떤 결과가 있었는지”</span>
             </div>
             <a class="btn" href="#p1">상세로 슉 이동 →</a>
@@ -411,16 +449,22 @@
             </ul>
           </div>
           <div class="thumbs">
-            <div class="assets/p1/내 정보 페이지.png">내 정보 페이지</div>
-            <div class="assets/p1/내 프로젝트 페이지.png">내 프로젝트 페이지</div>
-            <div class="assets/p1/프로젝트 페이지 리뷰.png">프로젝트 페이지 리뷰</div>
+            <div class="thumb">
+              <img src="assets/p1/mypage1.PNG" alt="내 정보 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p1/myproject1.PNG" alt="내 프로젝트 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p1/mkproject1.PNG" alt="프로젝트 메이커" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
           </div>
         </article>
 
         <article class="proj">
           <div class="projHeader">
             <div class="projTitle">
-              <b>2차 프로젝트</b>
+              <b>NovaTrip</b>
               <span>요약 한 줄: “핵심 기능/역할/성과”</span>
             </div>
             <a class="btn" href="#p2">상세로 슉 이동 →</a>
@@ -436,16 +480,22 @@
             </ul>
           </div>
           <div class="thumbs">
-            <div class="assets/p2/메인페이지.jpg">메인 페이지</div>
-            <div class="assets/p2/관리자페이지-광고설정페이지.jpg">관리자 페이지</div>
-            <div class="assets/p2/지도페이지.jpg">지도 페이지</div>
+            <div class="thumb">
+              <img src="assets/p2/메인페이지.jpg" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p2/관리자페이지 - 광고설정페이지.jpg" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p2/지도페이지.jpg" alt="지도 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
           </div>
         </article>
 
         <article class="proj">
           <div class="projHeader">
             <div class="projTitle">
-              <b>3차 프로젝트</b>
+              <b>BaroFarm</b>
               <span>요약 한 줄: “문제 해결 중심으로 설명”</span>
             </div>
             <a class="btn" href="#p3">상세로 슉 이동 →</a>
@@ -461,16 +511,22 @@
             </ul>
           </div>
           <div class="thumbs">
-            <div class="assets/p3/시세메인페이지1.png">시세 메인 페이지</div>
-            <div class="assets/p3/간편가격정보1.png">가격 정보</div>
-            <div class="assets/p3/관리자페이지대시보드.png">관리자 페이지</div>
+            <div class="thumb">
+              <img src="assets/p3/시세메인페이지1.png" alt="시세 메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p3/간편가격정보1.png" alt="가격 정보" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/p3/관리자페이지대시보드.png" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
           </div>
         </article>
 
         <article class="proj">
           <div class="projHeader">
             <div class="projTitle">
-              <b>AI 프로젝트 1차</b>
+              <b>Seven Playlist</b>
               <span>요약 한 줄: “AI/데이터로 해결한 문제”</span>
             </div>
             <a class="btn" href="#ai1">상세로 슉 이동 →</a>
@@ -486,16 +542,22 @@
             </ul>
           </div>
           <div class="thumbs">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
+            <div class="thumb">
+              <img src="assets/ai-p1/mainpage.png" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
+            <div class="thumb">
+              <img src="assets/ai-p1/playlist1.png" alt="플레이 리스트" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>            
+            <div class="thumb">
+              <img src="assets/ai-p1/playlist2.png" alt="재생목록" loading="lazy" onerror="this.parentElement.style.display='none'">
+            </div>
           </div>
         </article>
 
         <article class="proj">
           <div class="projHeader">
             <div class="projTitle">
-              <b>AI 프로젝트 2차</b>
+              <b>SmartBudget</b>
               <span>요약 한 줄: “서비스 연동까지 한 번에”</span>
             </div>
             <a class="btn" href="#ai2">상세로 슉 이동 →</a>
@@ -528,27 +590,28 @@
     
       <!-- 탭(라디오) -->
       <div class="projTabs" role="tablist" aria-label="프로젝트 선택">
-        <input type="radio" name="proj" id="tab-p1" checked>
-        <label for="tab-p1" data-target="panel-p1">1차</label>
-    
-        <input type="radio" name="proj" id="tab-p2">
-        <label for="tab-p2" data-target="panel-p2">2차</label>
-    
+
         <input type="radio" name="proj" id="tab-p3">
-        <label for="tab-p3" data-target="panel-p3">3차</label>
-    
-        <input type="radio" name="proj" id="tab-ai1">
-        <label for="tab-ai1" data-target="panel-ai1">AI 1차</label>
+        <label for="tab-p3" data-target="panel-p3">BaroFarm</label>
+
+        <input type="radio" name="proj" id="tab-p2">
+        <label for="tab-p2" data-target="panel-p2">NovaTrip</label>
     
         <input type="radio" name="proj" id="tab-ai2">
-        <label for="tab-ai2" data-target="panel-ai2">AI 2차</label>
+        <label for="tab-ai2" data-target="panel-ai2">SmartBudget</label>
+
+        <input type="radio" name="proj" id="tab-ai1">
+        <label for="tab-ai1" data-target="panel-ai1">Seven Playlist</label>
+
+        <input type="radio" name="proj" id="tab-p1" checked>
+        <label for="tab-p1" data-target="panel-p1">NovaFund</label>        
       </div>
     
       <!-- 내용 패널(선택된 것만 보임) -->
       <div class="projPanels">
         <!-- 1차 -->
         <article class="projPanel is-active" id="panel-p1" data-key="p1">
-          <h3>1차 프로젝트 — (프로젝트명 입력)</h3>
+          <h3>크라우드 펀딩 웹사이트 - NovaFund</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
     
           <!-- PDF 다운로드 버튼 -->
@@ -560,17 +623,29 @@
             </div>
           </div>
     
-          <!-- 이미지 갤러리 (30장 이상 지원) -->
-          <div class="imageGallery">
-            <!-- 이미지 추가 예시: 
-            <div class="galleryImage"><img src="assets/p1-1.png" alt="1차 프로젝트 이미지 1"></div>
-            <div class="galleryImage"><img src="assets/p1-2.png" alt="1차 프로젝트 이미지 2"></div>
-            ... 최대 30장 이상까지 추가 가능
-            -->
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
-            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+          <!-- 이미지 슬라이더 (1장씩 보기) -->
+          <div class="imageGallery" data-slider="p1">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('p1', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-p1">
+                <div class="galleryImage">
+                  <img src="assets/p1/mypage1.PNG" alt="내 정보 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p1/myproject1.PNG" alt="내 프로젝트 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p1/mkproject1.PNG" alt="프로젝트 메이커" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('p1', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('p1', -1)" id="btn-prev-p1">이전</button>
+              <span class="sliderCounter" id="counter-p1">1 / 3</span>
+              <button class="sliderBtn" onclick="slideImage('p1', 1)" id="btn-next-p1">다음</button>
+            </div>
           </div>
     
           <div class="split" style="margin-top:14px">
@@ -605,7 +680,7 @@
     
         <!-- 2차 -->
         <article class="projPanel" id="panel-p2" data-key="p2">
-          <h3>2차 프로젝트 — (프로젝트명 입력)</h3>
+          <h3>서울 지역 여행 웹사이트 - NovaTrip</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
           <!-- PDF 다운로드 버튼 -->
@@ -617,12 +692,29 @@
             </div>
           </div>
     
-          <!-- 이미지 갤러리 -->
-          <div class="imageGallery">
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
-            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+          <!-- 이미지 슬라이더 (1장씩 보기) -->
+          <div class="imageGallery" data-slider="p2">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('p2', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-p2">
+                <div class="galleryImage">
+                  <img src="assets/p2/메인페이지.jpg" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p2/관리자페이지 - 광고설정페이지.jpg" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p2/지도페이지.jpg" alt="지도 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('p2', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('p2', -1)" id="btn-prev-p2">이전</button>
+              <span class="sliderCounter" id="counter-p2">1 / 3</span>
+              <button class="sliderBtn" onclick="slideImage('p2', 1)" id="btn-next-p2">다음</button>
+            </div>
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -633,7 +725,7 @@
     
         <!-- 3차 -->
         <article class="projPanel" id="panel-p3" data-key="p3">
-          <h3>3차 프로젝트 — (프로젝트명 입력)</h3>
+          <h3>농산물 시세 추이 웹사이트 - BaroFarm</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
           <!-- PDF 다운로드 버튼 -->
@@ -645,12 +737,29 @@
             </div>
           </div>
     
-          <!-- 이미지 갤러리 -->
-          <div class="imageGallery">
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
-            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+          <!-- 이미지 슬라이더 (1장씩 보기) -->
+          <div class="imageGallery" data-slider="p3">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('p3', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-p3">
+                <div class="galleryImage">
+                  <img src="assets/p3/시세메인페이지1.png" alt="시세 메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p3/간편가격정보1.png" alt="가격 정보" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/p3/관리자페이지대시보드.png" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('p3', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('p3', -1)" id="btn-prev-p3">이전</button>
+              <span class="sliderCounter" id="counter-p3">1 / 3</span>
+              <button class="sliderBtn" onclick="slideImage('p3', 1)" id="btn-next-p3">다음</button>
+            </div>
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -661,7 +770,7 @@
     
         <!-- AI 1차 -->
         <article class="projPanel" id="panel-ai1" data-key="ai1">
-          <h3>AI 프로젝트 1차 — (프로젝트명 입력)</h3>
+          <h3>음악 플레이리스트 프로젝트 - Seven Playlist</h3>
           <p class="meta">데이터/모델/평가 지표/결과</p>
     
           <!-- PDF 다운로드 버튼 -->
@@ -673,12 +782,29 @@
             </div>
           </div>
     
-          <!-- 이미지 갤러리 -->
-          <div class="imageGallery">
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
-            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+          <!-- 이미지 슬라이더 (1장씩 보기) -->
+          <div class="imageGallery" data-slider="ai1">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('ai1', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-ai1">
+                <div class="galleryImage">
+                  <img src="assets/ai-p1/mainpage.png" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/ai-p1/playlist1.png" alt="공유 플레이 리스트" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/ai-p1/playlist2.png" alt="재생목록" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('ai1', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('ai1', -1)" id="btn-prev-ai1">이전</button>
+              <span class="sliderCounter" id="counter-ai1">1 / 3</span>
+              <button class="sliderBtn" onclick="slideImage('ai1', 1)" id="btn-next-ai1">다음</button>
+            </div>
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -693,7 +819,7 @@
     
         <!-- AI 2차 -->
         <article class="projPanel" id="panel-ai2" data-key="ai2">
-          <h3>AI 프로젝트 2차 — (프로젝트명 입력)</h3>
+          <h3>AI 가계부 프로젝트 - SmartBudget</h3>
           <p class="meta">서빙/백엔드 연동/운영 플로우</p>
     
           <!-- PDF 다운로드 버튼 -->
@@ -705,12 +831,29 @@
             </div>
           </div>
     
-          <!-- 이미지 갤러리 -->
-          <div class="imageGallery">
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
-            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
-            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+          <!-- 이미지 슬라이더 (1장씩 보기) -->
+          <div class="imageGallery" data-slider="ai2">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('ai2', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-ai2">
+                <div class="galleryImage">
+                  <img src="assets/ai2/01.png" alt="AI 2차 프로젝트 이미지 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/ai2/02.png" alt="AI 2차 프로젝트 이미지 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/ai2/03.png" alt="AI 2차 프로젝트 이미지 3" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('ai2', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('ai2', -1)" id="btn-prev-ai2">이전</button>
+              <span class="sliderCounter" id="counter-ai2">1 / 3</span>
+              <button class="sliderBtn" onclick="slideImage('ai2', 1)" id="btn-next-ai2">다음</button>
+            </div>
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -786,6 +929,73 @@
     // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // 이미지 슬라이더 상태 저장
+    const sliderStates = {};
+
+    // 슬라이더 초기화
+    function initSliders() {
+      const sliders = document.querySelectorAll('[data-slider]');
+      sliders.forEach(slider => {
+        const sliderId = slider.getAttribute('data-slider');
+        const wrapper = document.getElementById('slider-' + sliderId);
+        if (!wrapper) return;
+        
+        const images = wrapper.querySelectorAll('.galleryImage');
+        const total = images.length;
+        
+        sliderStates[sliderId] = {
+          current: 0,
+          total: total
+        };
+        
+        updateSliderUI(sliderId);
+      });
+    }
+
+    // 이미지 슬라이드 함수
+    function slideImage(sliderId, direction) {
+      if (!sliderStates[sliderId]) {
+        initSliders();
+      }
+      
+      const state = sliderStates[sliderId];
+      const wrapper = document.getElementById('slider-' + sliderId);
+      if (!wrapper) return;
+      
+      state.current += direction;
+      
+      // 범위 체크
+      if (state.current < 0) state.current = 0;
+      if (state.current >= state.total) state.current = state.total - 1;
+      
+      // 슬라이드 이동
+      wrapper.style.transform = `translateX(-${state.current * 100}%)`;
+      
+      updateSliderUI(sliderId);
+    }
+
+    // 슬라이더 UI 업데이트 (카운터, 버튼 상태)
+    function updateSliderUI(sliderId) {
+      const state = sliderStates[sliderId];
+      if (!state) return;
+      
+      const counter = document.getElementById('counter-' + sliderId);
+      const prevBtn = document.getElementById('btn-prev-' + sliderId);
+      const nextBtn = document.getElementById('btn-next-' + sliderId);
+      const prevArrow = document.querySelector(`[data-slider="${sliderId}"] .sliderArrow.prev`);
+      const nextArrow = document.querySelector(`[data-slider="${sliderId}"] .sliderArrow.next`);
+      
+      if (counter) {
+        counter.textContent = `${state.current + 1} / ${state.total}`;
+      }
+      
+      // 버튼 활성/비활성
+      if (prevBtn) prevBtn.disabled = state.current === 0;
+      if (nextBtn) nextBtn.disabled = state.current === state.total - 1;
+      if (prevArrow) prevArrow.style.opacity = state.current === 0 ? '0.4' : '1';
+      if (nextArrow) nextArrow.style.opacity = state.current === state.total - 1 ? '0.4' : '1';
+    }
+
     // 프로젝트 탭 전환 기능
     (function(){
       const tabs = document.querySelectorAll('.projTabs input[type="radio"]');
@@ -800,6 +1010,8 @@
           const targetPanel = document.getElementById(targetId);
           if(targetPanel) {
             targetPanel.classList.add('is-active');
+            // 탭 전환 시 슬라이더 초기화
+            initSliders();
           }
         });
       });
@@ -815,6 +1027,11 @@
         }
       }
     })();
+
+    // 페이지 로드 시 슬라이더 초기화
+    document.addEventListener('DOMContentLoaded', function() {
+      initSliders();
+    });
 
     // (선택) 해시 이동 시 상단 고정 헤더만큼 살짝 보정하고 싶을 때:
     // - 브라우저 기본 scroll-behavior로도 충분하지만, 보정이 필요하면 아래 활성화
