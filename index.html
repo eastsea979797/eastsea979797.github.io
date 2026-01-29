@@ -419,82 +419,154 @@
       </div>
     </section>
 
-    <!-- Project Detail Sections -->
-    <section class="card detail" id="p1">
-      <h3>1차 프로젝트 — (프로젝트명 입력)</h3>
-      <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
-      <div class="split">
-        <div class="box">
-          <h3>내가 기여한 부분</h3>
-          <ul>
-            <li>예: 성적 입력 페이지 개발 (react-hook-form)</li>
-            <li>예: localStorage로 임시 저장 기능</li>
-            <li>예: 계산 로직 최적화(map/reduce/filter 등)</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3>성과(숫자로 쓰기)</h3>
-          <ul>
-            <li>예: 응답시간 3초 → 1초</li>
-            <li>예: 문의 20건 이상 대응/개선</li>
-            <li>예: 사용자 750명 접속, 175명 로그인 등</li>
-          </ul>
-        </div>
+    <!-- Project Detail (ONE BOX + RADIO TABS) -->
+    <section class="card detail" id="projectViewer">
+      <div class="sectionTitle" style="margin:0 0 10px">
+        <h2 style="margin:0">👩🏻‍💻 프로젝트 상세</h2>
+        <p style="margin:0" class="muted">라디오를 선택하면 같은 박스 안에서 내용이 바뀝니다.</p>
       </div>
-      <div class="box" style="margin-top:14px">
-        <h3>트러블슈팅</h3>
-        <ul>
-          <li><b>문제:</b> 스크롤 이벤트로 잦은 렌더링 발생</li>
-          <li><b>시도:</b> 이벤트 호출 빈도/옵션 조사(throttle, passive)</li>
-          <li><b>해결:</b> throttle 적용 + passive 옵션으로 성능 개선</li>
-          <li><b>배운 점:</b> debounce/throttle 사용 기준 정리</li>
-        </ul>
+    
+      <!-- 탭(라디오) -->
+      <div class="projTabs" role="tablist" aria-label="프로젝트 선택">
+        <input type="radio" name="proj" id="tab-p1" checked>
+        <label for="tab-p1" data-target="panel-p1">1차</label>
+    
+        <input type="radio" name="proj" id="tab-p2">
+        <label for="tab-p2" data-target="panel-p2">2차</label>
+    
+        <input type="radio" name="proj" id="tab-p3">
+        <label for="tab-p3" data-target="panel-p3">3차</label>
+    
+        <input type="radio" name="proj" id="tab-ai1">
+        <label for="tab-ai1" data-target="panel-ai1">AI 1차</label>
+    
+        <input type="radio" name="proj" id="tab-ai2">
+        <label for="tab-ai2" data-target="panel-ai2">AI 2차</label>
+      </div>
+    
+      <!-- 내용 패널(선택된 것만 보임) -->
+      <div class="projPanels">
+        <!-- 1차 -->
+        <article class="projPanel is-active" id="panel-p1" data-key="p1">
+          <h3>1차 프로젝트 — (프로젝트명 입력)</h3>
+          <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
+    
+          <!-- 이미지 영역 (원하면 3장까지) -->
+          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+            <!-- 예시: <div class="thumb"><img src="assets/p1-1.png" alt="1차 화면1"></div> -->
+          </div>
+    
+          <div class="split" style="margin-top:14px">
+            <div class="box">
+              <h3>내가 기여한 부분</h3>
+              <ul>
+                <li>예: 성적 입력 페이지 개발 (react-hook-form)</li>
+                <li>예: localStorage로 임시 저장 기능</li>
+                <li>예: 계산 로직 최적화(map/reduce/filter 등)</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>성과(숫자로 쓰기)</h3>
+              <ul>
+                <li>예: 응답시간 3초 → 1초</li>
+                <li>예: 문의 20건 이상 대응/개선</li>
+                <li>예: 사용자 750명 접속, 175명 로그인 등</li>
+              </ul>
+            </div>
+          </div>
+    
+          <div class="box" style="margin-top:14px">
+            <h3>트러블슈팅</h3>
+            <ul>
+              <li><b>문제:</b> 스크롤 이벤트로 잦은 렌더링 발생</li>
+              <li><b>시도:</b> 이벤트 호출 빈도/옵션 조사(throttle, passive)</li>
+              <li><b>해결:</b> throttle 적용 + passive 옵션으로 성능 개선</li>
+              <li><b>배운 점:</b> debounce/throttle 사용 기준 정리</li>
+            </ul>
+          </div>
+        </article>
+    
+        <!-- 2차 -->
+        <article class="projPanel" id="panel-p2" data-key="p2">
+          <h3>2차 프로젝트 — (프로젝트명 입력)</h3>
+          <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+    
+          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+    
+          <div class="box" style="margin-top:14px">
+            <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
+            <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+          </div>
+        </article>
+    
+        <!-- 3차 -->
+        <article class="projPanel" id="panel-p3" data-key="p3">
+          <h3>3차 프로젝트 — (프로젝트명 입력)</h3>
+          <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+    
+          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+    
+          <div class="box" style="margin-top:14px">
+            <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
+            <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+          </div>
+        </article>
+    
+        <!-- AI 1차 -->
+        <article class="projPanel" id="panel-ai1" data-key="ai1">
+          <h3>AI 프로젝트 1차 — (프로젝트명 입력)</h3>
+          <p class="meta">데이터/모델/평가 지표/결과</p>
+    
+          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+    
+          <div class="box" style="margin-top:14px">
+            <h3>내가 한 일(파이프라인 관점)</h3>
+            <ul>
+              <li>데이터 수집 → 전처리 → 학습 → 평가 → 개선</li>
+              <li>모델 선택 이유(성능/속도/데이터 특성)</li>
+              <li>실패 케이스 분석 및 개선</li>
+            </ul>
+          </div>
+        </article>
+    
+        <!-- AI 2차 -->
+        <article class="projPanel" id="panel-ai2" data-key="ai2">
+          <h3>AI 프로젝트 2차 — (프로젝트명 입력)</h3>
+          <p class="meta">서빙/백엔드 연동/운영 플로우</p>
+    
+          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="thumb">이미지1</div>
+            <div class="thumb">이미지2</div>
+            <div class="thumb">이미지3</div>
+          </div>
+    
+          <div class="box" style="margin-top:14px">
+            <h3>서비스 연동(면접에서 좋아하는 포인트)</h3>
+            <ul>
+              <li>모델 결과를 API로 제공(FastAPI 등)</li>
+              <li>백엔드에서 저장/검증/예외 처리 흐름 설계</li>
+              <li>확률 차이가 작은 케이스는 사용자 확인(챗봇)으로 품질 확보</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="card detail" id="p2">
-      <h3>2차 프로젝트 — (프로젝트명 입력)</h3>
-      <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
-      <div class="box">
-        <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
-        <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
-      </div>
-    </section>
-
-    <section class="card detail" id="p3">
-      <h3>3차 프로젝트 — (프로젝트명 입력)</h3>
-      <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
-      <div class="box">
-        <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
-        <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
-      </div>
-    </section>
-
-    <section class="card detail" id="ai1">
-      <h3>AI 프로젝트 1차 — (프로젝트명 입력)</h3>
-      <p class="meta">데이터/모델/평가 지표/결과</p>
-      <div class="box">
-        <h3>내가 한 일(파이프라인 관점)</h3>
-        <ul>
-          <li>데이터 수집 → 전처리 → 학습 → 평가 → 개선</li>
-          <li>모델 선택 이유(성능/속도/데이터 특성)</li>
-          <li>실패 케이스 분석 및 개선</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card detail" id="ai2">
-      <h3>AI 프로젝트 2차 — (프로젝트명 입력)</h3>
-      <p class="meta">서빙/백엔드 연동/운영 플로우</p>
-      <div class="box">
-        <h3>서비스 연동(면접에서 좋아하는 포인트)</h3>
-        <ul>
-          <li>모델 결과를 API로 제공(FastAPI 등)</li>
-          <li>백엔드에서 저장/검증/예외 처리 흐름 설계</li>
-          <li>확률 차이가 작은 케이스는 사용자 확인(챗봇)으로 품질 확보</li>
-        </ul>
-      </div>
-    </section>
 
     <!-- Skills -->
     <section id="skills">
