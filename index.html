@@ -255,6 +255,28 @@
       transform:translateY(-1px);
     }
     .pdfDownload::before{content:"📄"}
+    
+    /* PDF 다운로드 영역 */
+    .pdfDownloadArea{
+      display:flex; flex-direction:column; gap:8px; margin-top:12px;
+    }
+    .pdfDownloadRow{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+    .driveLink{
+      display:inline-flex; align-items:center; gap:6px;
+      color:var(--muted); font-size:12px; text-decoration:none;
+      padding:6px 10px; border-radius:6px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      transition:all .2s;
+    }
+    .driveLink:hover{
+      color:var(--text);
+      border-color:rgba(79,124,255,.5);
+      background:rgba(79,124,255,.08);
+    }
+    .driveLink::before{content:"☁️"}
   </style>
 </head>
 
@@ -328,9 +350,13 @@
           <p style="margin:0 0 8px"><b>이름</b> : 한동해</p>
           <p style="margin:0 0 8px"><b>GitHub</b> : <a class="cta" style="padding:6px 10px" href="https://github.com/eastsea979797" target="_blank" rel="noreferrer">github.com/eastsea979797</a></p>
           <p style="margin:0 0 8px"><b>Email</b> : <span class="muted">eastsea5675@naver.com</span></p>
-          <p style="margin:12px 0 0 0">
+          <div class="pdfDownloadArea">
             <a href="resume.pdf" class="pdfDownload" download>이력서 PDF 다운로드</a>
-          </p>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
         </div>
 
         <div class="hr"></div>
@@ -526,7 +552,13 @@
           <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
     
           <!-- PDF 다운로드 버튼 -->
-          <a href="projects/p1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+          <div class="pdfDownloadArea">
+            <a href="projects/p1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
     
           <!-- 이미지 갤러리 (30장 이상 지원) -->
           <div class="imageGallery">
@@ -577,7 +609,13 @@
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
           <!-- PDF 다운로드 버튼 -->
-          <a href="projects/p2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+          <div class="pdfDownloadArea">
+            <a href="projects/p2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
     
           <!-- 이미지 갤러리 -->
           <div class="imageGallery">
@@ -599,7 +637,13 @@
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
           <!-- PDF 다운로드 버튼 -->
-          <a href="projects/p3.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+          <div class="pdfDownloadArea">
+            <a href="projects/p3.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
     
           <!-- 이미지 갤러리 -->
           <div class="imageGallery">
@@ -621,7 +665,13 @@
           <p class="meta">데이터/모델/평가 지표/결과</p>
     
           <!-- PDF 다운로드 버튼 -->
-          <a href="projects/ai1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+          <div class="pdfDownloadArea">
+            <a href="projects/ai1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
     
           <!-- 이미지 갤러리 -->
           <div class="imageGallery">
@@ -647,7 +697,13 @@
           <p class="meta">서빙/백엔드 연동/운영 플로우</p>
     
           <!-- PDF 다운로드 버튼 -->
-          <a href="projects/ai2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+          <div class="pdfDownloadArea">
+            <a href="projects/ai2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
     
           <!-- 이미지 갤러리 -->
           <div class="imageGallery">
