@@ -183,6 +183,78 @@
     .miniNav{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .miniNav a{font-size:13px; color:var(--muted); border:1px solid var(--line); padding:8px 10px; border-radius:999px}
     .miniNav a:hover{color:var(--text); border-color:rgba(79,124,255,.6); background:rgba(79,124,255,.10)}
+
+    /* 프로젝트 탭 버튼 스타일 */
+    .projTabs{
+      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;
+      padding:12px; background:rgba(255,255,255,.02);
+      border:1px solid var(--line); border-radius:12px;
+    }
+    .projTabs input[type="radio"]{display:none}
+    .projTabs label{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 16px; border-radius:8px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted); font-size:14px; cursor:pointer;
+      transition:all .2s;
+    }
+    .projTabs label:hover{
+      border-color:rgba(79,124,255,.5);
+      background:rgba(79,124,255,.08);
+      color:var(--text);
+    }
+    .projTabs input[type="radio"]:checked + label{
+      border-color:rgba(79,124,255,.7);
+      background:linear-gradient(135deg, rgba(79,124,255,.25), rgba(124,92,255,.2));
+      color:var(--text);
+    }
+
+    /* 프로젝트 패널 */
+    .projPanels{position:relative; min-height:400px}
+    .projPanel{
+      display:none; padding:0;
+    }
+    .projPanel.is-active{display:block}
+
+    /* 이미지 갤러리 (30장 이상 지원) */
+    .imageGallery{
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+      gap:12px; margin-top:16px;
+    }
+    @media (max-width: 600px){
+      .imageGallery{grid-template-columns:repeat(2, 1fr); gap:8px}
+    }
+    .galleryImage{
+      aspect-ratio:16/10; border-radius:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      overflow:hidden; cursor:pointer;
+      transition:transform .2s, border-color .2s;
+    }
+    .galleryImage:hover{
+      transform:scale(1.02);
+      border-color:rgba(79,124,255,.5);
+    }
+    .galleryImage img{
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+
+    /* PDF 다운로드 버튼 */
+    .pdfDownload{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 16px; border-radius:8px;
+      border:1px solid rgba(79,124,255,.5);
+      background:linear-gradient(135deg, rgba(79,124,255,.22), rgba(124,92,255,.18));
+      color:var(--text); font-size:14px; text-decoration:none;
+      margin-top:12px; transition:all .2s;
+    }
+    .pdfDownload:hover{
+      border-color:rgba(79,124,255,.7);
+      background:linear-gradient(135deg, rgba(79,124,255,.3), rgba(124,92,255,.25));
+      transform:translateY(-1px);
+    }
+    .pdfDownload::before{content:"📄"}
   </style>
 </head>
 
@@ -254,9 +326,11 @@
         <span class="pill">📌 빠른 정보</span>
         <div style="margin-top:12px">
           <p style="margin:0 0 8px"><b>이름</b> : 한동해</p>
-          <p style="margin:0 0 8px"><b>사이트</b> : <a class="cta" style="padding:6px 10px" href="https://eastsea979797.github.io/" target="_blank" rel="noreferrer">GitHub Pages</a></p>
           <p style="margin:0 0 8px"><b>GitHub</b> : <a class="cta" style="padding:6px 10px" href="https://github.com/eastsea979797" target="_blank" rel="noreferrer">github.com/eastsea979797</a></p>
-          <p style="margin:0 0 8px"><b>연락</b> : <span class="muted">eastsea5675@naver.com</span></p>
+          <p style="margin:0 0 8px"><b>Email</b> : <span class="muted">eastsea5675@naver.com</span></p>
+          <p style="margin:12px 0 0 0">
+            <a href="resume.pdf" class="pdfDownload" download>이력서 PDF 다운로드</a>
+          </p>
         </div>
 
         <div class="hr"></div>
@@ -451,12 +525,20 @@
           <h3>1차 프로젝트 — (프로젝트명 입력)</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
     
-          <!-- 이미지 영역 (원하면 3장까지) -->
-          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
-            <!-- 예시: <div class="thumb"><img src="assets/p1-1.png" alt="1차 화면1"></div> -->
+          <!-- PDF 다운로드 버튼 -->
+          <a href="projects/p1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+    
+          <!-- 이미지 갤러리 (30장 이상 지원) -->
+          <div class="imageGallery">
+            <!-- 이미지 추가 예시: 
+            <div class="galleryImage"><img src="assets/p1-1.png" alt="1차 프로젝트 이미지 1"></div>
+            <div class="galleryImage"><img src="assets/p1-2.png" alt="1차 프로젝트 이미지 2"></div>
+            ... 최대 30장 이상까지 추가 가능
+            -->
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
+            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
           </div>
     
           <div class="split" style="margin-top:14px">
@@ -494,10 +576,15 @@
           <h3>2차 프로젝트 — (프로젝트명 입력)</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
-          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
+          <!-- PDF 다운로드 버튼 -->
+          <a href="projects/p2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+    
+          <!-- 이미지 갤러리 -->
+          <div class="imageGallery">
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
+            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -511,10 +598,15 @@
           <h3>3차 프로젝트 — (프로젝트명 입력)</h3>
           <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
     
-          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
+          <!-- PDF 다운로드 버튼 -->
+          <a href="projects/p3.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+    
+          <!-- 이미지 갤러리 -->
+          <div class="imageGallery">
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
+            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -528,10 +620,15 @@
           <h3>AI 프로젝트 1차 — (프로젝트명 입력)</h3>
           <p class="meta">데이터/모델/평가 지표/결과</p>
     
-          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
+          <!-- PDF 다운로드 버튼 -->
+          <a href="projects/ai1.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+    
+          <!-- 이미지 갤러리 -->
+          <div class="imageGallery">
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
+            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -549,10 +646,15 @@
           <h3>AI 프로젝트 2차 — (프로젝트명 입력)</h3>
           <p class="meta">서빙/백엔드 연동/운영 플로우</p>
     
-          <div class="thumbs" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
+          <!-- PDF 다운로드 버튼 -->
+          <a href="projects/ai2.pdf" class="pdfDownload" download>프로젝트 PDF 다운로드</a>
+    
+          <!-- 이미지 갤러리 -->
+          <div class="imageGallery">
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 1</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 2</div>
+            <div class="galleryImage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px">이미지 3</div>
+            <!-- 여기에 최대 30장 이상의 이미지를 추가하세요 -->
           </div>
     
           <div class="box" style="margin-top:14px">
@@ -627,6 +729,36 @@
   <script>
     // footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 프로젝트 탭 전환 기능
+    (function(){
+      const tabs = document.querySelectorAll('.projTabs input[type="radio"]');
+      const panels = document.querySelectorAll('.projPanel');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('change', function(){
+          const targetId = 'panel-' + this.id.replace('tab-', '');
+          panels.forEach(panel => {
+            panel.classList.remove('is-active');
+          });
+          const targetPanel = document.getElementById(targetId);
+          if(targetPanel) {
+            targetPanel.classList.add('is-active');
+          }
+        });
+      });
+
+      // 해시로 프로젝트 이동 시 해당 탭 활성화
+      const hash = location.hash.replace('#', '');
+      if(hash && ['p1', 'p2', 'p3', 'ai1', 'ai2'].includes(hash)){
+        const tabId = 'tab-' + hash;
+        const tab = document.getElementById(tabId);
+        if(tab) {
+          tab.checked = true;
+          tab.dispatchEvent(new Event('change'));
+        }
+      }
+    })();
 
     // (선택) 해시 이동 시 상단 고정 헤더만큼 살짝 보정하고 싶을 때:
     // - 브라우저 기본 scroll-behavior로도 충분하지만, 보정이 필요하면 아래 활성화
