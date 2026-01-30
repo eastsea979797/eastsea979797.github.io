@@ -335,7 +335,7 @@
 
       <div class="navlinks">
         <a href="#intro">자기소개</a>
-        <a href="#projects">프로젝트</a>
+        <a href="#projectViewer">프로젝트</a>
         <a href="#skills">기술</a>
         <a href="#contact" class="cta">연락처</a>
       </div>
@@ -354,14 +354,15 @@
         </p>
 
         <div class="badges">
-          <span class="tag">React / Next.js</span>
-          <span class="tag">TypeScript</span>
+          <span class="tag">ML/DL/LLM</span>
+          <span class="tag">BACKEND</span>
           <span class="tag">SEO / 성능 개선</span>
           <span class="tag">트러블슈팅 문서화</span>
+          <span class="tag">배포 / 운영</span>
         </div>
 
         <div class="row">
-          <a class="btn btnPrimary" href="#projects">프로젝트 보러가기</a>
+          <a class="btn btnPrimary" href="#projectViewer">프로젝트 보기</a>
           <a class="btn" href="#skills">기술 경험 보기</a>
           <a class="btn" href="https://github.com/eastsea979797" target="_blank" rel="noreferrer">GitHub</a>
         </div>
@@ -382,7 +383,7 @@
             <ul>
               <li>“페이지 개발”이 아니라, <b>처음 보는 사람도 이해</b>하게 만들기</li>
               <li>사진/화면을 같이 보여주고, 기여/성과를 한 줄로 요약</li>
-              <li>트러블슈팅은 <b>문제 → 시도 → 해결 → 배운 점</b></li>
+              <li><strong>트러블슈팅:</strong> <br/><b>문제→ 시도→ 해결→ 배운 점</b></li>
             </ul>
           </div>
         </div>
@@ -407,191 +408,28 @@
 
         <span class="pill">🧭 프로젝트 바로가기</span>
         <div class="miniNav">
-          <!-- “이동” (섹션 앵커) -->
           <a href="#p1">NovaFund</a>
           <a href="#p2">NovaTrip</a>
           <a href="#p3">BaroFarm</a>
           <a href="#ai1">Seven Playlist</a>
           <a href="#ai2">SmartBudget</a>
-
-          <!-- ✅ 옵션: 별도 페이지로 이동하고 싶으면 아래 링크를 사용(파일 만들면 됨)
-          <a href="projects/p1.html">1차(페이지)</a>
-          -->
         </div>
 
         <div class="hr"></div>
       </aside>
     </div>
 
-    <!-- Projects overview cards -->
-    <section id="projects">
-      <div class="sectionTitle">
-        <h2>👩🏻‍💻 프로젝트</h2>
-      </div>
-
-      <div class="grid">
-        <article class="proj">
-          <div class="projHeader">
-            <div class="projTitle">
-              <b>NovaFund</b>
-              <span>요약 한 줄: “무엇을 만들었고 어떤 결과가 있었는지”</span>
-            </div>
-            <a class="btn" href="#p1">상세로 슉 이동 →</a>
-          </div>
-          <div class="tags">
-            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li><b>내 기여:</b> A 구현, B 개선</li>
-              <li><b>성과:</b> 응답시간 3초→1초, 이탈 감소 등</li>
-              <li><b>트러블슈팅:</b> “문제-시도-해결”을 문서화</li>
-            </ul>
-          </div>
-          <div class="thumbs">
-            <div class="thumb">
-              <img src="assets/p1/mypage1.PNG" alt="내 정보 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p1/myproject1.PNG" alt="내 프로젝트 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p1/mkproject1.PNG" alt="프로젝트 메이커" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projHeader">
-            <div class="projTitle">
-              <b>NovaTrip</b>
-              <span>요약 한 줄: “핵심 기능/역할/성과”</span>
-            </div>
-            <a class="btn" href="#p2">상세로 슉 이동 →</a>
-          </div>
-          <div class="tags">
-            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li><b>내 기여:</b> 핵심 화면/기능 개발</li>
-              <li><b>성과:</b> 오류율 감소, 운영 편의 개선</li>
-              <li><b>트러블슈팅:</b> 성능/UX 개선 사례</li>
-            </ul>
-          </div>
-          <div class="thumbs">
-            <div class="thumb">
-              <img src="assets/p2/메인페이지.jpg" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p2/관리자페이지 - 광고설정페이지.jpg" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p2/지도페이지.jpg" alt="지도 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projHeader">
-            <div class="projTitle">
-              <b>BaroFarm</b>
-              <span>요약 한 줄: “문제 해결 중심으로 설명”</span>
-            </div>
-            <a class="btn" href="#p3">상세로 슉 이동 →</a>
-          </div>
-          <div class="tags">
-            <span class="tag">Tech 1</span><span class="tag">Tech 2</span><span class="tag">역할</span>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li><b>내 기여:</b> 협업 구조 개선, 품질 향상</li>
-              <li><b>성과:</b> 배포 안정화, 유지보수성 강화</li>
-              <li><b>트러블슈팅:</b> “원인-가설-검증” 흐름</li>
-            </ul>
-          </div>
-          <div class="thumbs">
-            <div class="thumb">
-              <img src="assets/p3/시세메인페이지1.png" alt="시세 메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p3/간편가격정보1.png" alt="가격 정보" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/p3/관리자페이지대시보드.png" alt="관리자 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projHeader">
-            <div class="projTitle">
-              <b>Seven Playlist</b>
-              <span>요약 한 줄: “AI/데이터로 해결한 문제”</span>
-            </div>
-            <a class="btn" href="#ai1">상세로 슉 이동 →</a>
-          </div>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Pipeline</span>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li><b>내 기여:</b> 데이터 수집/전처리/평가</li>
-              <li><b>성과:</b> 정확도/재현율/속도 개선</li>
-              <li><b>트러블슈팅:</b> 데이터 품질/편향 대응</li>
-            </ul>
-          </div>
-          <div class="thumbs">
-            <div class="thumb">
-              <img src="assets/ai-p1/mainpage.png" alt="메인 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-            <div class="thumb">
-              <img src="assets/ai-p1/playlist1.png" alt="플레이 리스트" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>            
-            <div class="thumb">
-              <img src="assets/ai-p1/playlist2.png" alt="재생목록" loading="lazy" onerror="this.parentElement.style.display='none'">
-            </div>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="projHeader">
-            <div class="projTitle">
-              <b>SmartBudget</b>
-              <span>요약 한 줄: “서비스 연동까지 한 번에”</span>
-            </div>
-            <a class="btn" href="#ai2">상세로 슉 이동 →</a>
-          </div>
-          <div class="tags">
-            <span class="tag">FastAPI</span><span class="tag">Model Serving</span><span class="tag">Backend 연동</span>
-          </div>
-          <div class="projBody">
-            <ul>
-              <li><b>내 기여:</b> 모델 서빙, API 설계, 연동</li>
-              <li><b>성과:</b> 자동 분류 플로우 구축</li>
-              <li><b>트러블슈팅:</b> 예외/속도/정확도 트레이드오프</li>
-            </ul>
-          </div>
-          <div class="thumbs">
-            <div class="thumb">이미지1</div>
-            <div class="thumb">이미지2</div>
-            <div class="thumb">이미지3</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Project Detail (ONE BOX + RADIO TABS) -->
+    <!-- Project detail(ONE BOX + RADIO TABS) -->
     <section class="card detail" id="projectViewer">
       <div class="sectionTitle" style="margin:0 0 10px">
-        <h2 style="margin:0">👩🏻‍💻 프로젝트 상세</h2>
+        <h2 style="margin:0">👩🏻‍💻 팀 프로젝트 </h2>
         <p style="margin:0" class="muted">라디오를 선택하면 같은 박스 안에서 내용이 바뀝니다.</p>
       </div>
     
       <!-- 탭(라디오) -->
       <div class="projTabs" role="tablist" aria-label="프로젝트 선택">
 
-        <input type="radio" name="proj" id="tab-p3">
+        <input type="radio" name="proj" id="tab-p3" checked>
         <label for="tab-p3" data-target="panel-p3">BaroFarm</label>
 
         <input type="radio" name="proj" id="tab-p2">
@@ -603,16 +441,17 @@
         <input type="radio" name="proj" id="tab-ai1">
         <label for="tab-ai1" data-target="panel-ai1">Seven Playlist</label>
 
-        <input type="radio" name="proj" id="tab-p1" checked>
+        <input type="radio" name="proj" id="tab-p1">
         <label for="tab-p1" data-target="panel-p1">NovaFund</label>        
       </div>
     
       <!-- 내용 패널(선택된 것만 보임) -->
       <div class="projPanels">
-        <!-- 1차 -->
-        <article class="projPanel is-active" id="panel-p1" data-key="p1">
+        <!-- NovaFund -->
+        <article class="projPanel" id="panel-p1" data-key="p1">
+          <span id="p1" style="position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none" aria-hidden="true"></span>
           <h3>크라우드 펀딩 웹사이트 - NovaFund</h3>
-          <p class="meta">기간 · 팀구성 · 역할 · 링크(깃허브/데모) 등을 여기에</p>
+          <p class="meta">2025.09.16 ~ 2025.09.30 · Springframework + JSP + OracleDB 기반 크라우드펀딩 서비스</p>
     
           <!-- PDF 다운로드 버튼 -->
           <div class="pdfDownloadArea">
@@ -648,40 +487,22 @@
             </div>
           </div>
     
-          <div class="split" style="margin-top:14px">
-            <div class="box">
-              <h3>내가 기여한 부분</h3>
-              <ul>
-                <li>예: 성적 입력 페이지 개발 (react-hook-form)</li>
-                <li>예: localStorage로 임시 저장 기능</li>
-                <li>예: 계산 로직 최적화(map/reduce/filter 등)</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>성과(숫자로 쓰기)</h3>
-              <ul>
-                <li>예: 응답시간 3초 → 1초</li>
-                <li>예: 문의 20건 이상 대응/개선</li>
-                <li>예: 사용자 750명 접속, 175명 로그인 등</li>
-              </ul>
-            </div>
-          </div>
-    
           <div class="box" style="margin-top:14px">
-            <h3>트러블슈팅</h3>
+            <h3>프로젝트 설명</h3>
             <ul>
-              <li><b>문제:</b> 스크롤 이벤트로 잦은 렌더링 발생</li>
-              <li><b>시도:</b> 이벤트 호출 빈도/옵션 조사(throttle, passive)</li>
-              <li><b>해결:</b> throttle 적용 + passive 옵션으로 성능 개선</li>
-              <li><b>배운 점:</b> debounce/throttle 사용 기준 정리</li>
+              <li><strong>담당 기능:</strong> 프로젝트 생성·수정 기능 구현</li>
+              <li><strong>문제:</strong> 사업자 진위여부 공공 API 연동 과정에서 정상 요청에도 검증 결과가 반환되지 않는 문제 발생</li>
+              <li><strong>해결:</strong> 요청·응답 로그를 기반으로 필수 필드와 인코딩 설정을 수정하고, 검증 결과를 세션에 공통 저장하도록 구조를 개선</li>
+              <li><strong>결과:</strong> API 연동 안정화, 검증 로직 중앙화로 유지보수성 향상 및 외부 API 처리 경험 강화</li>
             </ul>
           </div>
         </article>
-    
-        <!-- 2차 -->
+
+        <!-- NovaTrip -->
         <article class="projPanel" id="panel-p2" data-key="p2">
+          <span id="p2" style="position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none" aria-hidden="true"></span>
           <h3>서울 지역 여행 웹사이트 - NovaTrip</h3>
-          <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+          <p class="meta">2025.10.22 ~ 2025.11.10 · Node.js + React + MongoDB 기반 서울 여행 정보 공유 웹 서비스</p>
     
           <!-- PDF 다운로드 버튼 -->
           <div class="pdfDownloadArea">
@@ -718,15 +539,21 @@
           </div>
     
           <div class="box" style="margin-top:14px">
-            <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
-            <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+            <h3>프로젝트 설명</h3>
+            <ul>
+              <li><strong>담당 기능:</strong> 소셜로그인 포함 로그인 및 회원가입 기능, 마이페이지, 관리자 페이지 구현</li>
+              <li><strong>문제:</strong> JWT 토큰을 여러 API에서 공통으로 사용해야 했으나, 인증 로직이 분산될 경우 유지보수와 보안 관리에 어려움이 발생할 우려</li>
+              <li><strong>해결:</strong> 인증 전용 미들웨어와 토큰 유틸을 분리하고, 로그인 시에만 토큰을 발급하며 이후 요청은 미들웨어에서 검증하도록 구조화</li>
+              <li><strong>결과:</strong> 인증 로직 일관성 확보, 중복 코드 감소 및 권한 오류 예방으로 보안성과 유지보수성 향상</li>
+            </ul>
           </div>
         </article>
-    
-        <!-- 3차 -->
-        <article class="projPanel" id="panel-p3" data-key="p3">
+
+        <!-- BaroFarm -->
+        <article class="projPanel is-active" id="panel-p3" data-key="p3">
+          <span id="p3" style="position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none" aria-hidden="true"></span>
           <h3>농산물 시세 추이 웹사이트 - BaroFarm</h3>
-          <p class="meta">기간 · 팀구성 · 역할 · 링크</p>
+          <p class="meta">2025.11.13 ~ 2025.12.12 · SpringBoot + React + OracleDB 기반 농산물 시세추이 및 직거래 서비스</p>
     
           <!-- PDF 다운로드 버튼 -->
           <div class="pdfDownloadArea">
@@ -763,13 +590,19 @@
           </div>
     
           <div class="box" style="margin-top:14px">
-            <h3>핵심 기여 / 성과 / 트러블슈팅</h3>
-            <p class="muted">여기에 1차와 동일한 형식으로 작성하면 됩니다.</p>
+            <h3>프로젝트 설명</h3>
+            <ul>
+              <li><strong>담당 기능:</strong> 외부 API 활용 농산물 검색 및 시세 추이 그래프, 검색량 기준 인기순위 농산물 리스트, 관리자 페이지 구현</li>
+              <li><strong>문제:</strong> 네이버 검색순위 크롤링 중단으로 농산물 인기 순위 산정에 어려움이 발생하여 대체제가 필요</li>
+              <li><strong>해결:</strong> 네이버 데이터랩 API 기반 검색량 데이터를 수집·정규화해 기존 랭킹 산식에 적용하고 스케줄링 처리</li>
+              <li><strong>결과:</strong> 외부 변화에 강한 데이터 파이프라인 구축, 서비스 안정성 및 유지보수성 개선</li>
+            </ul>
           </div>
         </article>
-    
-        <!-- AI 1차 -->
+
+        <!-- Seven Playlist -->
         <article class="projPanel" id="panel-ai1" data-key="ai1">
+          <span id="ai1" style="position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none" aria-hidden="true"></span>
           <h3>음악 플레이리스트 프로젝트 - Seven Playlist</h3>
           <p class="meta">데이터/모델/평가 지표/결과</p>
     
@@ -808,7 +641,7 @@
           </div>
     
           <div class="box" style="margin-top:14px">
-            <h3>내가 한 일(파이프라인 관점)</h3>
+            <h3>프로젝트 설명</h3>
             <ul>
               <li>데이터 수집 → 전처리 → 학습 → 평가 → 개선</li>
               <li>모델 선택 이유(성능/속도/데이터 특성)</li>
@@ -817,8 +650,9 @@
           </div>
         </article>
     
-        <!-- AI 2차 -->
+        <!-- SmartBudget -->
         <article class="projPanel" id="panel-ai2" data-key="ai2">
+          <span id="ai2" style="position:absolute;top:0;left:0;height:0;overflow:hidden;pointer-events:none" aria-hidden="true"></span>
           <h3>AI 가계부 프로젝트 - SmartBudget</h3>
           <p class="meta">서빙/백엔드 연동/운영 플로우</p>
     
@@ -857,7 +691,7 @@
           </div>
     
           <div class="box" style="margin-top:14px">
-            <h3>서비스 연동(면접에서 좋아하는 포인트)</h3>
+            <h3>프로젝트 설명</h3>
             <ul>
               <li>모델 결과를 API로 제공(FastAPI 등)</li>
               <li>백엔드에서 저장/검증/예외 처리 흐름 설계</li>
@@ -868,54 +702,287 @@
       </div>
     </section>
 
+    <!-- 개인 프로젝트 (3차 LLM → 2차 DL → 1차 ML) -->
+    <section class="card detail" id="personalViewer">
+      <div class="sectionTitle" style="margin:0 0 10px">
+        <h2 style="margin:0">👩🏻‍💻 개인 프로젝트</h2>
+        <p style="margin:0" class="muted">3차 LLM · 2차 DL · 1차 ML (비중 순)</p>
+      </div>
 
-    <!-- Skills -->
+      <div class="projTabs" role="tablist" aria-label="개인 프로젝트 선택">
+        <input type="radio" name="personal" id="tab-personal-llm" checked>
+        <label for="tab-personal-llm" data-target="panel-personal-llm">3차 LLM</label>
+        <input type="radio" name="personal" id="tab-personal-dl">
+        <label for="tab-personal-dl" data-target="panel-personal-dl">2차 DL</label>
+        <input type="radio" name="personal" id="tab-personal-ml">
+        <label for="tab-personal-ml" data-target="panel-personal-ml">1차 ML</label>
+      </div>
+
+      <div class="projPanels" id="personalPanels">
+        <!-- 3차 LLM (가장 비중 큼) -->
+        <article class="projPanel is-active" id="panel-personal-llm" data-key="personal-llm">
+          <h3>LLM 모델 기반 소설 창작 프로젝트 (3차)</h3>
+          <p class="meta">개인 프로젝트 · LLM</p>
+          <div class="pdfDownloadArea">
+            <a href="personal/llm/한동해-LLM 모델 기반 소설 창작 프로젝트.pptx" class="pdfDownload" download>프로젝트 발표(PPTX) 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
+          <div class="imageGallery" data-slider="personal-llm">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('personal-llm', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-personal-llm">
+                <div class="galleryImage">
+                  <img src="assets/LLM/newEP_MK1.png" alt="LLM 프로젝트 - newEP_MK1" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/LLM/EP_MK2.png" alt="LLM 프로젝트 - EP_MK2" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/LLM/Loding_Novel.png" alt="LLM 프로젝트 - Loding_Novel" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/LLM/EP_MK3.png" alt="LLM 프로젝트 - EP_MK3" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/LLM/Sum_MK1.png" alt="LLM 프로젝트 - Sum_MK1" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/LLM/Sum_MK2.png" alt="LLM 프로젝트 - Sum_MK2" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('personal-llm', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('personal-llm', -1)" id="btn-prev-personal-llm">이전</button>
+              <span class="sliderCounter" id="counter-personal-llm">1 / 6</span>
+              <button class="sliderBtn" onclick="slideImage('personal-llm', 1)" id="btn-next-personal-llm">다음</button>
+            </div>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>개요</h3>
+            <p class="muted">Ollama(로컬 LLM) + ChromaDB(RAG) + Sentence Transformers(임베딩) + Gradio(UI) 구조로, 로컬에서 실행 가능한 소설 생성 시스템입니다.</p>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>Novel Maker 설명</h3>
+            <ul>
+              <li><strong>LLM:</strong> Ollama(로컬), Gemma 3 4B, REST API(스트리밍), temperature 0.6, top_p 0.9, top_k 40, repeat_penalty 1.15</li>
+              <li><strong>RAG:</strong> ChromaDB(PersistentClient), sentence-transformers/all-MiniLM-L6-v2(384차원), top_k 4, 컨텍스트 1800자</li>
+              <li><strong>텍스트 분할:</strong> 문단 우선, 청크 900자, 오버랩 150자</li>
+              <li><strong>UI:</strong> Gradio(스트리밍 출력, 챕터/요약 생성·저장)</li>
+              <li><strong>라이브러리:</strong> gradio, chromadb, sentence-transformers, python-dotenv (Ollama 연동)</li>
+              <li><strong>아키텍처:</strong> KB 문서 RAG 파이프라인(분할→임베딩→ChromaDB→검색→LLM), 이전 화 요약을 다음 화 컨텍스트로 활용</li>
+              <li><strong>데이터:</strong> data/kb(KB 문서), data/chapters(챕터), data/summaries(요약), vectordb(ChromaDB)</li>
+              <li><strong>설정:</strong> 청크 400~900자, 오버랩 50~150자, 목표 3000자, 대화 비율 30%</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2차 DL -->
+        <article class="projPanel" id="panel-personal-dl" data-key="personal-dl">
+          <h3>딥러닝 기반 피임 방법 예측 프로젝트(2차)</h3>
+          <p class="meta">개인 프로젝트 · DL</p>
+          <div class="pdfDownloadArea">
+            <a href="personal/dl/한동해_딥러닝프로젝트.hwp" class="pdfDownload" download>프로젝트 문서(HWP) 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
+          <div class="imageGallery" data-slider="personal-dl">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('personal-dl', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-personal-dl">
+                <div class="galleryImage">
+                  <img src="assets/DL/model1.png" alt="DL 프로젝트 - model1" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/DL/mainpage.png" alt="DL 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>                          
+                <div class="galleryImage">
+                  <img src="assets/DL/predict2.png" alt="DL 프로젝트 - predict2" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/DL/conclude.png" alt="DL 프로젝트 - conclude" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div> 
+                <div class="galleryImage">
+                  <img src="assets/DL/r.png" alt="DL 프로젝트 - r" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+              </div>
+              <div class="sliderArrow next" onclick="slideImage('personal-dl', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('personal-dl', -1)" id="btn-prev-personal-dl">이전</button>
+              <span class="sliderCounter" id="counter-personal-dl">1 / 1</span>
+              <button class="sliderBtn" onclick="slideImage('personal-dl', 1)" id="btn-next-personal-dl">다음</button>
+            </div>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>개요</h3>
+            <p class="muted">인구통계·사회경제 데이터를 입력받아 피임 방법 선택(미사용 / 장기 / 단기) 을 3-class 분류로 예측하는 딥러닝 프로젝트입니다.</p>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>설명</h3>
+            <ul>
+              <li><strong>기술 스택:</strong> Python, TensorFlow/Keras, NumPy, Pandas, SciPy, scikit-learn, imbalanced-learn, Matplotlib, Jupyter, Streamlit </li>
+              <li><strong>사용 모델: <br/></strong> 
+                A	One-hot + MLP <br/>
+                B	Embedding + MLP (시연 기본)<br/>
+                C	Wide & Deep (Wide: One-hot, Deep: Embedding, 로짓 합산 후 Softmax)
+              </li>
+              <li><strong>문제:</strong> 클래스 불균형 → 클래스 가중치 + (선택) 오버샘플링(sample_from_datasets).</li>
+              <li><strong>해결:</strong> 과적합/학습 안정성 → EarlyStopping, ReduceLROnPlateau, ModelCheckpoint, L2, Dropout.</li>
+              <li>운영 시 오판 위험 → 확신 임계값(τ) 도입, “최대 확률 < τ이면 보류” (발표/보고서·확신임계값 설명.txt 반영).</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 1차 ML --> 
+        <article class="projPanel" id="panel-personal-ml" data-key="personal-ml">
+          <h3>머신러닝 기반 농산물 시세예측 프로젝트(1차)</h3>
+          <p class="meta">개인 프로젝트 · ML</p>
+          <div class="pdfDownloadArea">
+            <a href="personal/ml/한동해_머신러닝프로젝트.hwp" class="pdfDownload" download>프로젝트 문서(HWP) 다운로드</a>
+            <div class="pdfDownloadRow">
+              <span style="color:var(--muted);font-size:12px">용량이슈로 다운이 불가능한 경우:</span>
+              <a href="https://drive.google.com/drive/folders/1anrvcoGSs_y3Q2GpYMknKrtBel2F4uCO" class="driveLink" target="_blank" rel="noreferrer">구글 드라이브에서 다운로드</a>
+            </div>
+          </div>
+          <div class="imageGallery" data-slider="personal-ml">
+            <div class="sliderContainer">
+              <div class="sliderArrow prev" onclick="slideImage('personal-ml', -1)">‹</div>
+              <div class="sliderWrapper" id="slider-personal-ml">
+
+                <div class="galleryImage">
+                  <img src="assets/ML/model1.png" alt="ML 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>
+                <div class="galleryImage">
+                  <img src="assets/ML/select2.png" alt="DL 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>  
+                <div class="galleryImage">
+                  <img src="assets/ML/model2.png" alt="DL 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>  
+                <div class="galleryImage">
+                  <img src="assets/ML/graph.png" alt="DL 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>  
+                <div class="galleryImage">
+                  <img src="assets/ML/explain1.png" alt="DL 프로젝트 - mainpage" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </div>                
+                </div>
+              <div class="sliderArrow next" onclick="slideImage('personal-ml', 1)">›</div>
+            </div>
+            <div class="sliderNav">
+              <button class="sliderBtn" onclick="slideImage('personal-ml', -1)" id="btn-prev-personal-ml">이전</button>
+              <span class="sliderCounter" id="counter-personal-ml">1 / 1</span>
+              <button class="sliderBtn" onclick="slideImage('personal-ml', 1)" id="btn-next-personal-ml">다음</button>
+            </div>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>개요</h3>
+            <p class="muted">날씨와 농산물 도·소매 가격으로 평균 가격 예측하는 머신러닝 프로젝트입니다.</p>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>프로젝트 설명</h3>
+            <ul>
+              <li><strong>기술 스택:</strong> Python 3.10, Streamlit, Pandas, NumPy, scikit-learn, Matplotlib</li>
+              <li><strong>사용 모델:<br/></strong> 
+                선형회귀: Ridge(alpha=1.0) <br/>
+                랜덤포레스트: RandomForestRegressor <br/>
+                타깃: 1일 뒤 평균가격(y = AVRG_PRCE.shift(-1)) <br/>
+                피처: humidity_1_5m, dow, month, weekofyear, dayofyear, lag_1/7/14/28 (예측 시에는 lag만 사용)
+              </li>
+              <li><strong>전처리:</strong> 디버깅을 통해 결측치,중복값,이상치 처리. 날짜 형식 불일치 전처리</li>
+              <li><strong>문제 발생:</strong>                
+                대부분 농산물 가격이 낮은 구간에 밀집하여 긴꼬리 편향 발생. <br/>
+                <strong>해결:</strong> 로직그 변환으로 분포의 안정성 확보. 모델 성능 향상.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="skills">
       <div class="sectionTitle">
         <h2>⌨️ 기술</h2>
-        <p>숙련도 bar 대신 “해본 경험”으로 증명</p>
+        <p>프로젝트 경험으로 정리</p>
       </div>
-
+    
+      <!-- 1. AI / 데이터 -->
       <div class="split">
         <div class="box">
-          <h3>TypeScript / JavaScript</h3>
+          <h3>AI · 데이터 처리</h3>
           <ul>
-            <li>유니온/인터섹션 타입 등 타입 연산자 경험</li>
-            <li>async/await 기반 비동기 처리</li>
-            <li>IntersectionObserver로 무한 스크롤 구현 경험</li>
-            <li>localStorage 기반 임시 저장/복원 기능 구현</li>
+            <li>OCR 결과(JSON) 후처리 파이프라인 설계 및 도메인 데이터 정제 경험</li>
+            <li>텍스트 기반 카테고리 분류 머신러닝 모델 설계 및 학습</li>
+            <li>데이터 부족 문제를 더미 데이터 생성·증강으로 보완</li>
+            <li>확률 차이가 작은 케이스를 사용자 확인 플로우로 분기하는 품질 관리 경험</li>
           </ul>
         </div>
+    
+        <!-- 2. 배포 / 운영 -->
         <div class="box">
-          <h3>React / Next.js</h3>
+          <h3>배포 · 운영 경험</h3>
           <ul>
-            <li>react-hook-form으로 폼 상태/검증 관리</li>
-            <li>getServerSideProps 등 SSR 데이터 패칭 경험</li>
-            <li>SEO: meta/metadata 설정 및 검색 노출 개선</li>
-            <li>렌더링/이벤트 최적화(throttle, passive)</li>
+            <li>FastAPI 기반 모델 서빙 API 구성 및 백엔드 연동</li>
+            <li>GitHub Pages를 활용한 포트폴리오 정적 배포</li>
+            <li>환경별 설정 분리(dev / prod) 및 실행 명령 관리 경험</li>
+            <li>빌드·실행 오류 발생 시 로그 기반 원인 분석 및 해결</li>
           </ul>
         </div>
       </div>
-
+    
+      <!-- 3. 백엔드 -->
       <div class="split" style="margin-top:14px">
         <div class="box">
-          <h3>HTML / CSS</h3>
+          <h3>Backend (Spring / API)</h3>
           <ul>
-            <li>시맨틱 마크업 기반 접근성 개선 경험</li>
-            <li>grid/rem 반응형 레이아웃 구성</li>
-            <li>keyframes 기반 UI 애니메이션 구현</li>
+            <li>Spring Boot 기반 REST API 설계 및 CRUD 구현 경험</li>
+            <li>Controller · Service · Repository 계층 분리 및 역할 설계</li>
+            <li>JWT 기반 인증·인가 구조 설계 및 공통 미들웨어 분리</li>
+            <li>외부 공공 API 연동 및 장애 발생 시 대체 데이터 파이프라인 구축</li>
           </ul>
         </div>
+    
+        <!-- 4. 데이터베이스 -->
         <div class="box">
-          <h3>Git / 협업</h3>
+          <h3>Database</h3>
           <ul>
-            <li>git-flow 기반 브랜치 전략 경험</li>
-            <li>코드리뷰로 품질 개선(리팩토링/규칙 정리)</li>
-            <li>문서화(트러블슈팅/인수인계)로 협업 효율 향상</li>
+            <li>Oracle, MariaDB, PostgreSQL 기반 테이블 설계 및 SQL 작성</li>
+            <li>JPA / MyBatis를 활용한 데이터 접근 계층 분리</li>
+            <li>ERD 설계 단계에서 정규화 및 관계 정의 참여</li>
+            <li>데이터 흐름(요청 → 처리 → 저장 → 응답) 기준 문제 분석 경험</li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- 5. 프론트엔드 -->
+      <div class="split" style="margin-top:14px">
+        <div class="box">
+          <h3>Frontend (React / TypeScript)</h3>
+          <ul>
+            <li>TypeScript 유니온·인터섹션 타입을 활용한 컴포넌트 설계</li>
+            <li>async/await 기반 API 통신 및 예외 처리</li>
+            <li>IntersectionObserver를 활용한 무한 스크롤 구현</li>
+            <li>localStorage 기반 임시 저장·복원 기능 구현</li>
+          </ul>
+        </div>
+    
+        <!-- 6. 협업 -->
+        <div class="box">
+          <h3>Git · 협업</h3>
+          <ul>
+            <li>Git 기반 브랜치 분기 및 기능 단위 커밋 관리</li>
+            <li>팀 프로젝트에서 트러블슈팅 내용 문서화 및 공유</li>
+            <li>역할·데이터 흐름을 먼저 정리해 충돌을 줄이는 협업 방식 경험</li>
+            <li>문제 발생 시 감정보다 근거 중심으로 합의 도출</li>
           </ul>
         </div>
       </div>
     </section>
+    
 
     <footer>
       <div class="hr"></div>
@@ -996,35 +1063,41 @@
       if (nextArrow) nextArrow.style.opacity = state.current === state.total - 1 ? '0.4' : '1';
     }
 
-    // 프로젝트 탭 전환 기능
+    // 프로젝트 탭 전환 (팀 프로젝트 / 개인 프로젝트 각각 자기 섹션만 제어)
     (function(){
-      const tabs = document.querySelectorAll('.projTabs input[type="radio"]');
-      const panels = document.querySelectorAll('.projPanel');
-      
-      tabs.forEach(tab => {
-        tab.addEventListener('change', function(){
-          const targetId = 'panel-' + this.id.replace('tab-', '');
-          panels.forEach(panel => {
-            panel.classList.remove('is-active');
-          });
-          const targetPanel = document.getElementById(targetId);
-          if(targetPanel) {
-            targetPanel.classList.add('is-active');
-            // 탭 전환 시 슬라이더 초기화
-            initSliders();
-          }
-        });
+      function showPanel(tabEl) {
+        const section = tabEl.closest('section.card');
+        const panels = section ? section.querySelectorAll('.projPanel') : [];
+        const targetId = 'panel-' + tabEl.id.replace('tab-', '');
+        panels.forEach(panel => panel.classList.remove('is-active'));
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) {
+          targetPanel.classList.add('is-active');
+          initSliders();
+        }
+      }
+
+      document.querySelectorAll('.projTabs input[type="radio"]').forEach(tab => {
+        tab.addEventListener('change', function() { showPanel(this); });
       });
 
-      // 해시로 프로젝트 이동 시 해당 탭 활성화
+      // 팀 프로젝트: 페이지 로드 시 checked에 맞춰 패널 표시
+      const checkedProj = document.querySelector('#projectViewer .projTabs input[name="proj"]:checked');
+      if (checkedProj) showPanel(checkedProj);
+
+      // 개인 프로젝트: 페이지 로드 시 checked에 맞춰 패널 표시
+      const checkedPersonal = document.querySelector('#personalViewer .projTabs input[name="personal"]:checked');
+      if (checkedPersonal) showPanel(checkedPersonal);
+
+      // 해시로 들어온 경우에만 팀 프로젝트 탭 활성화 (스크롤은 하지 않음)
       const hash = location.hash.replace('#', '');
-      if(hash && ['p1', 'p2', 'p3', 'ai1', 'ai2'].includes(hash)){
-        const tabId = 'tab-' + hash;
-        const tab = document.getElementById(tabId);
-        if(tab) {
+      if (hash && ['p1', 'p2', 'p3', 'ai1', 'ai2'].includes(hash)) {
+        const tab = document.getElementById('tab-' + hash);
+        if (tab) {
           tab.checked = true;
-          tab.dispatchEvent(new Event('change'));
+          showPanel(tab);
         }
+        history.replaceState(null, '', location.pathname + location.search);
       }
     })();
 
@@ -1032,19 +1105,6 @@
     document.addEventListener('DOMContentLoaded', function() {
       initSliders();
     });
-
-    // (선택) 해시 이동 시 상단 고정 헤더만큼 살짝 보정하고 싶을 때:
-    // - 브라우저 기본 scroll-behavior로도 충분하지만, 보정이 필요하면 아래 활성화
-    (function(){
-      const headerHeight = 70; // 대략값(원하면 조절)
-      if (!location.hash) return;
-      const el = document.querySelector(location.hash);
-      if (!el) return;
-      setTimeout(() => {
-        const y = el.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }, 50);
-    })();
   </script>
 </body>
 </html>
