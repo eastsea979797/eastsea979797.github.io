@@ -655,9 +655,7 @@
           <div class="box" style="margin-top:14px">
             <h3>프로젝트 설명</h3>
             <ul>
-              <li>데이터 수집 → 전처리 → 학습 → 평가 → 개선</li>
-              <li>모델 선택 이유(성능/속도/데이터 특성)</li>
-              <li>실패 케이스 분석 및 개선</li>
+              <li>담당기능 : css, ui, 반응형 ui 개발 및 개선</li>              
             </ul>
           </div>
         </article>
@@ -683,7 +681,7 @@
               <div class="sliderArrow prev" onclick="slideImage('ai2', -1)">‹</div>
               <div class="sliderWrapper" id="slider-ai2">
                 <div class="galleryImage">
-                  <img src="assets/AI-p2/mainpage.png" alt="대시보드 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
+                  <img src="assets/AI-p2/mainPage.png" alt="대시보드 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
                 </div>
                 <div class="galleryImage">
                   <img src="assets/AI-p2/receiptPage.png" alt="영수증 페이지" loading="lazy" onerror="this.parentElement.style.display='none'">
@@ -711,9 +709,35 @@
           <div class="box" style="margin-top:14px">
             <h3>프로젝트 설명</h3>
             <ul>
-              <li>모델 결과를 API로 제공(FastAPI 등)</li>
-              <li>백엔드에서 저장/검증/예외 처리 흐름 설계</li>
-              <li>확률 차이가 작은 케이스는 사용자 확인(챗봇)으로 품질 확보</li>
+              <li>
+                <strong>담당 기능:</strong> PaddleOCR 및 ML 기반 영수증 데이터 자동 추출 및 카테고리 분류 시스템 구축
+                <ul>
+                  <li>PaddleOCR(Detection/Recognition v4)을 활용해 영수증 내 텍스트(가맹점명, 상품명, 가격 등)를 JSON 형태로 정규화하여 추출</li>
+                  <li>추출된 텍스트 데이터를 머신러닝(ML) 모델에 입력하여 소비 카테고리 자동 분류 로직 구현</li>
+                  <li>AWS S3 버킷 내 객체 경로를 '회원번호/연도/월/이미지파일명' 구조로 설계하여 데이터 관리 효율성 증대</li>
+                </ul>
+              </li>
+              <li>
+                <strong>문제:</strong> Paddle Inference 기반 OCR 분석 프로세스의 높은 지연 시간(Latency) 발생
+                <ul>
+                  <li>이미지 분석부터 UI 렌더링까지 약 16~17초가 소요되어 실시간 서비스 도입 및 사용자 경험 확보에 한계</li>
+                </ul>
+              </li>
+              <li>
+                <strong>해결:</strong> 이미지 전처리 최적화 및 Paddle2ONNX를 통한 추론 엔진 교체
+                <ul>
+                  <li>입력 이미지의 장변이 1024px을 초과할 경우 비율을 유지하며 축소하여 연산 부하 경감</li>
+                  <li>PaddleOCR 모델을 paddle2onnx로 변환하고, Paddle Inference 대신 최적화된 ONNX Runtime으로 추론 엔진 교체</li>
+                  <li>기존 전·후처리 파이프라인 및 입출력 형식을 유지하여 호환성을 확보하고 추론 레이어의 성능만 극대화</li>
+                </ul>
+              </li>
+              <li>
+                <strong>결과:</strong> 추론 성능 약 23% 향상 및 시스템 안정성 확보
+                <ul>
+                  <li>전체 프로세스 처리 시간을 13초로 단축 (추론 단계에서 기존 대비 약 40% 시간 단축 효과 기대)</li>
+                  <li>모델 경량화 및 런타임 최적화를 통해 CPU/GPU 자원 효율성을 높여 응답 속도 및 유지보수성 개선</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </article>
